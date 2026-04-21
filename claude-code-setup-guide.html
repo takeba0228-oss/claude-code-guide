@@ -163,7 +163,9 @@
     <a class="toc-item green-bg" href="#sec9"><span class="toc-num green">9</span><span class="toc-text">使ってみよう</span></a>
     <a class="toc-item green-bg" href="#sec10"><span class="toc-num green">10</span><span class="toc-text">困ったとき・エラー対処</span></a>
     <a class="toc-item green-bg" href="#sec11"><span class="toc-num green">11</span><span class="toc-text">CMUX の便利機能</span></a>
-    <a class="toc-item green-bg" href="#sec12"><span class="toc-num green">12</span><span class="toc-text">よくある質問</span></a>
+    <a class="toc-item green-bg" href="#sec12"><span class="toc-num green">12</span><span class="toc-text">コスト削減テクニック</span></a>
+    <a class="toc-item green-bg" href="#sec13"><span class="toc-num green">13</span><span class="toc-text">おすすめ活用法・スキル</span></a>
+    <a class="toc-item green-bg" href="#sec14"><span class="toc-num green">14</span><span class="toc-text">よくある質問</span></a>
   </div>
 </div>
 
@@ -726,9 +728,132 @@
 </div>
 
 
-<!-- Section 12: FAQ -->
+<!-- Section 12: コスト削減テクニック -->
 <div class="section" id="sec12">
-  <div class="section-header"><div class="section-num green">12</div><div class="section-title">よくある質問</div></div>
+  <div class="section-header"><div class="section-num green">12</div><div class="section-title">コスト削減テクニック（Pro を長持ちさせる）</div></div>
+
+  <div class="box box-what"><div class="box-label">なぜコスト管理が大事？</div><p style="margin:0">Pro プラン（$20/月）には<strong>使用量の上限</strong>があります。上限に達すると一時的に使えなくなります。<br>以下のテクニックで<strong>同じ料金でもっとたくさん使える</strong>ようになります。</p></div>
+
+  <h3>すぐできる！7つの節約テクニック</h3>
+
+  <table class="compare-table">
+    <tr><th style="width:40px;">★</th><th>テクニック</th><th>やり方</th><th>節約効果</th></tr>
+    <tr class="recommended"><td>★★★</td><td><strong>1つの会話で1つの作業</strong></td><td>話題を変えるときは <span class="type-this">/clear</span> でリセット</td><td style="color:#27ae60;font-weight:600;">大</td></tr>
+    <tr class="recommended"><td>★★★</td><td><strong>/compact を使う</strong></td><td>会話が長くなったら <span class="type-this">/compact</span> で圧縮</td><td style="color:#27ae60;font-weight:600;">大</td></tr>
+    <tr class="recommended"><td>★★★</td><td><strong>具体的に指示する</strong></td><td>「いい感じに」→「青色で、ボタンは角丸で」</td><td style="color:#27ae60;font-weight:600;">大</td></tr>
+    <tr><td>★★</td><td><strong>やり直しより修正指示</strong></td><td>「全部作り直して」→「ここだけ変えて」</td><td style="color:#f39c12;font-weight:600;">中</td></tr>
+    <tr><td>★★</td><td><strong>ファイル添付で説明省略</strong></td><td>「この画像みたいに」「このファイル参考に」</td><td style="color:#f39c12;font-weight:600;">中</td></tr>
+    <tr><td>★★</td><td><strong>先に方針を聞く</strong></td><td>「作る前にどういう構成にするか教えて」</td><td style="color:#f39c12;font-weight:600;">中</td></tr>
+    <tr><td>★</td><td><strong>不要なファイル読み込みを避ける</strong></td><td>必要なフォルダだけで claude を起動</td><td style="color:#888;">小</td></tr>
+  </table>
+
+  <h3>会話の節約イメージ</h3>
+
+  <span class="screen-label" style="background:#e74c3c;">悪い例（コスト浪費）</span>
+  <div class="convo">
+    <div class="convo-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div></div>
+    <div class="convo-body">
+      <div class="convo-you">あなた:</div>
+      <div class="convo-msg">なんかいい感じのサイト作って</div>
+      <div class="convo-ai">Claude:</div>
+      <div class="convo-msg ai-msg">サイトを作成しました。</div>
+      <div class="convo-you">あなた:</div>
+      <div class="convo-msg">うーん、違うな。全部作り直して</div>
+      <div class="convo-you">あなた:</div>
+      <div class="convo-msg">やっぱこれも違う。もう一回全部</div>
+      <div style="color:#f38ba8; font-size:0.85em; margin-top:8px;">→ 3回やり直し = 3倍のコスト消費...</div>
+    </div>
+  </div>
+
+  <span class="screen-label" style="background:#27ae60;">良い例（コスト節約）</span>
+  <div class="convo">
+    <div class="convo-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div></div>
+    <div class="convo-body">
+      <div class="convo-you">あなた:</div>
+      <div class="convo-msg">美容サロンのサイト作って。色はピンク系、メニューは「施術一覧」「料金」「予約」の3つ</div>
+      <div class="convo-ai">Claude:</div>
+      <div class="convo-msg ai-msg">作成しました。</div>
+      <div class="convo-you">あなた:</div>
+      <div class="convo-msg">いいね！「料金」のところだけ表形式にして</div>
+      <div style="color:#a6e3a1; font-size:0.85em; margin-top:8px;">→ 最初から具体的 + 部分修正 = コスト1/3！</div>
+    </div>
+  </div>
+
+  <h3>制限に達しそうなときの確認方法</h3>
+  <div class="terminal">
+    <div class="terminal-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div><div class="terminal-title">cmux — Claude Code</div></div>
+    <div class="terminal-body">
+      <span class="green"> &gt;</span> <span class="command">/cost</span><br><br>
+      <span class="output">  Session cost:  $0.42</span><br>
+      <span class="output">  Total cost:    $2.18</span>
+    </div>
+  </div>
+  <p><span class="type-this">/cost</span> で今の会話にかかったコストを確認できます。数字が大きくなってきたら <span class="type-this">/compact</span> で圧縮！</p>
+
+  <div class="box box-tip"><div class="box-label">Pro で足りなくなったら</div><p style="margin:0">月 $100 の Max 5x にアップグレードすれば使用量が5倍に。<strong>claude.ai → Settings → Subscription</strong> からいつでも変更可能。</p></div>
+</div>
+
+
+<!-- Section 13: おすすめスキル・活用法 -->
+<div class="section" id="sec13">
+  <div class="section-header"><div class="section-num green">13</div><div class="section-title">おすすめの使い方・スキル集</div></div>
+
+  <div class="box box-what"><div class="box-label">スキルって何？</div><p style="margin:0">Claude Code には<strong>「スキル」</strong>という拡張機能があります。特定の作業に特化した「得意技」のようなもの。<br>スキルなしでも使えますが、<strong>知っているだけで作業効率が何倍にもなります。</strong></p></div>
+
+  <h3>初心者におすすめ！すぐ使える活用パターン</h3>
+
+  <table class="compare-table">
+    <tr><th style="width:32px;"></th><th>やりたいこと</th><th>Claude にこう言えばOK</th></tr>
+    <tr class="recommended"><td style="font-size:1.2em;">🌐</td><td><strong>Webサイトを作る</strong></td><td>「カフェのホームページ作って。メニューと地図を載せたい」</td></tr>
+    <tr class="recommended"><td style="font-size:1.2em;">📝</td><td><strong>文章を書く・直す</strong></td><td>「このメールの文章、もっとビジネスっぽくして」</td></tr>
+    <tr><td style="font-size:1.2em;">📊</td><td><strong>Excel / データ整理</strong></td><td>「このCSVファイルを見やすい表にして」</td></tr>
+    <tr><td style="font-size:1.2em;">🎨</td><td><strong>デザイン調整</strong></td><td>「このページ、スマホで見やすくして」</td></tr>
+    <tr><td style="font-size:1.2em;">🔍</td><td><strong>調べもの・リサーチ</strong></td><td>「競合のSNS運用について分析して」</td></tr>
+    <tr><td style="font-size:1.2em;">📄</td><td><strong>PDF作成</strong></td><td>「この内容をPDFの資料にまとめて」</td></tr>
+    <tr><td style="font-size:1.2em;">🤖</td><td><strong>自動化</strong></td><td>「毎日の売上をまとめるスクリプト作って」</td></tr>
+  </table>
+
+  <h3>覚えておくと便利な「/コマンド」</h3>
+  <p>Claude Code の中で <code>/</code> から始まる文字を打つと、特別な機能が使えます：</p>
+
+  <table class="compare-table">
+    <tr><th>コマンド</th><th>機能</th><th>こんなとき使う</th></tr>
+    <tr class="recommended"><td><span class="type-this">/compact</span></td><td>会話を圧縮して軽くする</td><td><strong>コスト節約に必須！</strong>長い会話の途中で</td></tr>
+    <tr class="recommended"><td><span class="type-this">/clear</span></td><td>会話をリセット</td><td>別の作業を始めるとき</td></tr>
+    <tr><td><span class="type-this">/cost</span></td><td>使用量を確認</td><td>制限が気になるとき</td></tr>
+    <tr><td><span class="type-this">/help</span></td><td>ヘルプ表示</td><td>使い方がわからないとき</td></tr>
+    <tr><td><span class="type-this">/theme</span></td><td>見た目を変更</td><td>色を変えたいとき</td></tr>
+    <tr><td><span class="type-this">/exit</span></td><td>終了</td><td>作業が終わったとき</td></tr>
+  </table>
+
+  <h3>上級者向け：さらに使いこなすコツ</h3>
+
+  <div class="glossary">
+    <div class="glossary-item">
+      <div class="glossary-term">「CLAUDE.md に書いておいて」</div>
+      <div class="glossary-def">毎回同じ指示をしなくていいように、<strong>ルールを記憶させる</strong>ことができます。<br>例：「日本語で返答して」「ファイルは Desktop に作って」など。一度設定すれば毎回の会話で自動適用。</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">「前回の続きから」</div>
+      <div class="glossary-def">Claude を閉じて再度開いたとき、<strong>作ったファイルはそのまま残っています</strong>。「さっき作ったサイトの続きお願い」と言えば、ファイルを読み取って理解してくれます。</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">画面分割で複数作業</div>
+      <div class="glossary-def">CMUX で <kbd>Command</kbd>+<kbd>D</kbd> すると画面が分割され、<strong>片方で Claude、片方で別の作業</strong>ができます。</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">ファイルをドラッグ＆ドロップ</div>
+      <div class="glossary-def">参考にしたい画像やファイルを CMUX の画面にドラッグ＆ドロップすると、Claude が内容を読み取ってくれます。「この画像みたいなデザインにして」がすぐできます。</div>
+    </div>
+  </div>
+
+  <div class="box box-tip"><div class="box-label">最大のコツ</div><p style="margin:0"><strong>「友達に頼むように話しかける」</strong>これだけ。<br>完璧な指示じゃなくてOK。「ここ変えて」「もうちょっと派手に」「やっぱ元に戻して」── ぜんぶ伝わります。</p></div>
+</div>
+
+
+<!-- Section 14: FAQ -->
+<div class="section" id="sec14">
+  <div class="section-header"><div class="section-num green">14</div><div class="section-title">よくある質問</div></div>
   <div class="faq-item"><div class="faq-q">日本語で使える？</div><div class="faq-a"><strong>はい。</strong>完全対応。英語不要。</div></div>
   <div class="faq-item"><div class="faq-q">プログラミング知識なくても使える？</div><div class="faq-a"><strong>はい。</strong>「Webサイト作って」でOK。細かい微調整には基礎知識があると便利。</div></div>
   <div class="faq-item"><div class="faq-q">普通のターミナルでも使える？</div><div class="faq-a"><strong>使えます。</strong>CMUX の方が画面分割やチーム機能が使えて便利。</div></div>
@@ -745,7 +870,7 @@
 
 
 <!-- チェックリスト -->
-<div class="section" id="sec13">
+<div class="section" id="sec15">
   <div class="section-header"><div class="section-num">✓</div><div class="section-title">セットアップ完了チェックリスト</div></div>
   <ul class="checklist">
     <li>claude.ai でアカウント作成した</li>
