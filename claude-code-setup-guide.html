@@ -161,11 +161,13 @@
   <div class="toc-phase usage">PART 2 ─ 使い方編（セットアップ後に読んでね）</div>
   <div class="toc-grid">
     <a class="toc-item green-bg" href="#sec9"><span class="toc-num green">9</span><span class="toc-text">使ってみよう</span></a>
-    <a class="toc-item green-bg" href="#sec10"><span class="toc-num green">10</span><span class="toc-text">困ったとき・エラー対処</span></a>
-    <a class="toc-item green-bg" href="#sec11"><span class="toc-num green">11</span><span class="toc-text">CMUX の便利機能</span></a>
-    <a class="toc-item green-bg" href="#sec12"><span class="toc-num green">12</span><span class="toc-text">コスト削減テクニック</span></a>
-    <a class="toc-item green-bg" href="#sec13"><span class="toc-num green">13</span><span class="toc-text">おすすめ活用法・スキル</span></a>
-    <a class="toc-item green-bg" href="#sec14"><span class="toc-num green">14</span><span class="toc-text">よくある質問</span></a>
+    <a class="toc-item green-bg" href="#sec10"><span class="toc-num green">10</span><span class="toc-text">ファイルの場所と見方</span></a>
+    <a class="toc-item green-bg" href="#sec11"><span class="toc-num green">11</span><span class="toc-text">困ったとき・エラー対処</span></a>
+    <a class="toc-item green-bg" href="#sec12"><span class="toc-num green">12</span><span class="toc-text">CMUX の便利機能</span></a>
+    <a class="toc-item green-bg" href="#sec13"><span class="toc-num green">13</span><span class="toc-text">コスト削減テクニック</span></a>
+    <a class="toc-item green-bg" href="#sec14"><span class="toc-num green">14</span><span class="toc-text">おすすめ活用法・スキル</span></a>
+    <a class="toc-item green-bg" href="#sec15"><span class="toc-num green">15</span><span class="toc-text">サイトを公開する方法</span></a>
+    <a class="toc-item green-bg" href="#sec16"><span class="toc-num green">16</span><span class="toc-text">よくある質問</span></a>
   </div>
 </div>
 
@@ -187,6 +189,19 @@
     <div class="diagram-arrow">▼</div>
     <div class="diagram-box accent">CMUX（シーマックス）<small>Claude Code を動かす専用アプリ（無料）</small></div>
   </div>
+
+  <h3>「Claude Code のアプリもあるのに、なぜ CMUX？」</h3>
+  <div class="box box-warn"><div class="box-label">よくある疑問</div><p style="margin:0">Claude Code にはデスクトップアプリ版もありますが、<strong>CMUX を使う理由</strong>があります：</p></div>
+
+  <table class="compare-table">
+    <tr><th></th><th>Claude Code<br>デスクトップアプリ</th><th>CMUX</th></tr>
+    <tr><td><strong>画面分割</strong></td><td>できない</td><td style="color:#27ae60;font-weight:600;">できる（複数同時作業）</td></tr>
+    <tr><td><strong>複数AI同時起動</strong></td><td>できない</td><td style="color:#27ae60;font-weight:600;">できる（チーム機能）</td></tr>
+    <tr><td><strong>ワークスペース管理</strong></td><td>なし</td><td style="color:#27ae60;font-weight:600;">プロジェクトごとに整理</td></tr>
+    <tr><td><strong>ショートカット</strong></td><td>少ない</td><td style="color:#27ae60;font-weight:600;">豊富（作業が速い）</td></tr>
+    <tr><td><strong>料金</strong></td><td>無料</td><td>無料</td></tr>
+  </table>
+  <p style="color:#888;font-size:0.9em;">つまり CMUX = <strong>Claude Code をもっと便利に使うためのパワーアップツール</strong>。無料なので入れない理由がありません。</p>
 
   <h3>このガイドに出てくる言葉</h3>
   <div class="glossary">
@@ -525,6 +540,81 @@
     <tr><td><strong>3</strong></td><td>いいえ（やめて）</td><td>「違うな」と思ったとき。怒られません</td></tr>
   </table>
 
+  <h3>許可を求められるパターン（全3種類）</h3>
+  <p>Claude は作業中に<strong>3種類の許可</strong>を求めてきます。どれも <strong>1 を選べばOK！</strong></p>
+
+  <span class="screen-label">パターン1：ファイルを新しく作るとき</span>
+  <div class="convo" style="margin-bottom:12px;">
+    <div class="convo-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div></div>
+    <div class="convo-body">
+      <div class="convo-ai">Claude:</div>
+      <div class="convo-msg ai-msg"><span class="highlight">Write</span> index.html を作成します<br><span style="color:#a6e3a1;">1. Yes</span> &nbsp; <span style="color:#f9e2af;">2. Yes, and don't ask again</span> &nbsp; <span style="color:#f38ba8;">3. No</span></div>
+    </div>
+  </div>
+
+  <span class="screen-label">パターン2：既存ファイルを編集するとき</span>
+  <div class="convo" style="margin-bottom:12px;">
+    <div class="convo-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div></div>
+    <div class="convo-body">
+      <div class="convo-ai">Claude:</div>
+      <div class="convo-msg ai-msg"><span class="highlight">Edit</span> index.html の25行目を変更します<br><span style="color:#a6e3a1;">1. Yes</span> &nbsp; <span style="color:#f9e2af;">2. Yes, and don't ask again</span> &nbsp; <span style="color:#f38ba8;">3. No</span></div>
+    </div>
+  </div>
+
+  <span class="screen-label">パターン3：コマンドを実行するとき</span>
+  <div class="convo" style="margin-bottom:12px;">
+    <div class="convo-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div></div>
+    <div class="convo-body">
+      <div class="convo-ai">Claude:</div>
+      <div class="convo-msg ai-msg"><span class="highlight">Bash</span> open index.html<br><span style="color:#585b70;">このコマンドを実行していいですか？</span><br><span style="color:#a6e3a1;">1. Yes</span> &nbsp; <span style="color:#f9e2af;">2. Yes, and don't ask again</span> &nbsp; <span style="color:#f38ba8;">3. No</span></div>
+    </div>
+  </div>
+
+  <div class="box box-tip"><div class="box-label">安心ポイント</div><p style="margin:0"><strong>勝手に何かされることは絶対にありません。</strong>Claude は必ず「やっていい？」と聞いてくれます。3（No）を選んでも怒られません。何度でもやり直せます。</p></div>
+
+  <h3>実践！サイトを作ってみよう（通しフロー）</h3>
+  <p><strong>「頼む → 許可 → 完成 → 確認 → 修正」</strong>の一連の流れを体験しましょう：</p>
+
+  <span class="screen-label">ステップ1：頼む</span>
+  <div class="convo">
+    <div class="convo-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div></div>
+    <div class="convo-body">
+      <div class="convo-you">あなた:</div>
+      <div class="convo-msg">自己紹介ページを作って。名前は「田中太郎」、趣味はカメラ、色はネイビー系で</div>
+      <div class="convo-ai">Claude:</div>
+      <div class="convo-msg ai-msg">自己紹介ページを作成しますね。<br><span class="highlight">Write</span> index.html<br><span style="color:#a6e3a1;">1. Yes</span> &nbsp; <span style="color:#f9e2af;">2. Yes, and don't ask again</span> &nbsp; <span style="color:#f38ba8;">3. No</span></div>
+      <div style="color:#a6e3a1; font-size:0.85em; margin-top:6px;">→ 1 を押して許可！</div>
+    </div>
+  </div>
+
+  <span class="screen-label" style="margin-top:16px;">ステップ2：確認する</span>
+  <div class="convo">
+    <div class="convo-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div></div>
+    <div class="convo-body">
+      <div class="convo-ai">Claude:</div>
+      <div class="convo-msg ai-msg">index.html を作成しました！<br>ブラウザで開いて確認しますか？</div>
+      <div class="convo-you">あなた:</div>
+      <div class="convo-msg">うん、開いて</div>
+      <div class="convo-ai">Claude:</div>
+      <div class="convo-msg ai-msg"><span class="highlight">Bash</span> open index.html<br><span style="color:#a6e3a1;">1. Yes</span></div>
+      <div style="color:#a6e3a1; font-size:0.85em; margin-top:6px;">→ 1 を押すと Safari/Chrome でページが開く！</div>
+    </div>
+  </div>
+
+  <span class="screen-label" style="margin-top:16px;">ステップ3：修正を頼む</span>
+  <div class="convo">
+    <div class="convo-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div></div>
+    <div class="convo-body">
+      <div class="convo-you">あなた:</div>
+      <div class="convo-msg">いいね！でも写真の部分をもう少し大きくして、あと「お問い合わせ」ボタンも追加して</div>
+      <div class="convo-ai">Claude:</div>
+      <div class="convo-msg ai-msg"><span class="highlight">Edit</span> index.html の42行目を変更します<br><span style="color:#a6e3a1;">1. Yes</span></div>
+      <div style="color:#a6e3a1; font-size:0.85em; margin-top:6px;">→ 1 を押す → 修正完了 → もう一度ブラウザで確認！</div>
+    </div>
+  </div>
+
+  <div class="box box-tip"><div class="box-label">この繰り返しで完成させる！</div><p style="margin:0"><strong>頼む → 確認 → 「ここ変えて」 → 確認 → 「いいね！」</strong><br>この流れを繰り返すだけ。プログラミング知識ゼロでWebサイトが作れます。</p></div>
+
   <h3>こんな頼み方ができます</h3>
   <table class="compare-table">
     <tr><th>こう言えばOK</th><th>やってくれること</th></tr>
@@ -540,9 +630,88 @@
 </div>
 
 
-<!-- Section 10: 困ったとき -->
+<!-- Section 10: 作ったファイルの場所と見方 -->
 <div class="section" id="sec10">
-  <div class="section-header"><div class="section-num green">10</div><div class="section-title">困ったとき・エラー対処法</div></div>
+  <div class="section-header"><div class="section-num green">10</div><div class="section-title">作ったファイルはどこ？見方と探し方</div></div>
+
+  <div class="box box-important"><div class="box-label">超重要！初心者が一番つまずくポイント</div><p style="margin:0">Claude が「ファイルを作成しました」と言ったけど、<strong>「どこにあるの？」「どうやって見るの？」</strong>と思いますよね。<br>ここで全部説明します。</p></div>
+
+  <h3>ファイルの保存場所</h3>
+  <p>Claude が作ったファイルは、<strong>claude コマンドを実行したフォルダ</strong>に保存されます。</p>
+
+  <div class="diagram">
+    <div class="diagram-box secondary" style="text-align:left;max-width:100%;">
+      <strong>「どこで claude を起動したか」でファイルの場所が決まる</strong><br><br>
+      <table style="width:100%;font-size:0.9em;">
+        <tr><td style="padding:6px 0;"><code>claude</code> だけで起動</td><td style="padding:6px 0;">→</td><td style="padding:6px 0;"><strong>ホーム（~）</strong>= Finder の家のアイコン</td></tr>
+        <tr><td style="padding:6px 0;"><code>cd ~/Desktop</code> してから <code>claude</code></td><td style="padding:6px 0;">→</td><td style="padding:6px 0;"><strong>デスクトップ</strong>に保存される</td></tr>
+        <tr><td style="padding:6px 0;"><code>cd ~/Documents/my-site</code> してから <code>claude</code></td><td style="padding:6px 0;">→</td><td style="padding:6px 0;"><strong>Documents/my-site</strong> に保存される</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h3>作ったファイルを見る3つの方法</h3>
+
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-content">
+      <div class="step-title">方法1：Claude に開いてもらう（いちばん簡単！）</div>
+      <div class="step-detail">Claude に<strong>「ブラウザで開いて」</strong>と言うだけ。</div>
+      <div class="convo" style="margin-top:8px;">
+        <div class="convo-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div></div>
+        <div class="convo-body">
+          <div class="convo-you">あなた:</div>
+          <div class="convo-msg">今作ったページ、ブラウザで見せて</div>
+          <div class="convo-ai">Claude:</div>
+          <div class="convo-msg ai-msg"><span class="highlight">Bash</span> open index.html</div>
+          <div style="color:#a6e3a1; font-size:0.85em; margin-top:6px;">→ 1 を押すと Safari でページが開く！</div>
+        </div>
+      </div>
+    </div></div>
+
+    <div class="step"><div class="step-num">2</div><div class="step-content">
+      <div class="step-title">方法2：Finder で探す</div>
+      <div class="step-detail">
+        <strong>Finder</strong>（笑顔のアイコン）を開く →<br>
+        左メニューの<strong>家のアイコン（ホーム）</strong>をクリック →<br>
+        Claude が作ったファイルがここにあります。
+      </div>
+      <div class="box box-tip" style="margin-top:8px;"><div class="box-label">家のアイコンが見つからない？</div><p style="margin:0">Finder メニューバー →「移動」→「ホーム」（ショートカット：<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd>）</p></div>
+    </div></div>
+
+    <div class="step"><div class="step-num">3</div><div class="step-content">
+      <div class="step-title">方法3：CMUX のターミナルで確認</div>
+      <div class="step-detail"><span class="type-this">ls</span> と打つと、今いるフォルダのファイル一覧が表示されます。</div>
+      <div class="terminal" style="margin-top:8px;">
+        <div class="terminal-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div><div class="terminal-title">cmux</div></div>
+        <div class="terminal-body">
+          <span class="prompt">%</span> <span class="command">ls</span><br>
+          <span class="output">Desktop    Documents    Downloads    index.html    style.css</span><br>
+          <span class="dim">↑ index.html と style.css が Claude が作ったファイル！</span>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <h3>HTML ファイルをブラウザで見る方法</h3>
+  <div class="box box-what"><div class="box-label">超簡単！</div><p style="margin:0">Finder で <strong>.html ファイルをダブルクリック</strong>するだけ。Safari か Chrome で開きます。<br>または、ファイルを<strong>ブラウザのウィンドウにドラッグ＆ドロップ</strong>してもOK。</p></div>
+
+  <h3>おすすめ：最初からデスクトップで作業する</h3>
+  <p>ファイルの場所に迷わないよう、<strong>デスクトップにフォルダを作ってから始める</strong>のがおすすめ：</p>
+  <div class="terminal">
+    <div class="terminal-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div><div class="terminal-title">cmux — 最初にこれを実行</div></div>
+    <div class="terminal-body">
+      <span class="prompt">%</span> <span class="command">mkdir ~/Desktop/my-site</span>  <span class="comment">← デスクトップに「my-site」フォルダを作成</span><br>
+      <span class="prompt">%</span> <span class="command">cd ~/Desktop/my-site</span>  <span class="comment">← そのフォルダに移動</span><br>
+      <span class="prompt">%</span> <span class="command">claude</span>  <span class="comment">← ここで Claude を起動！</span>
+    </div>
+  </div>
+  <p>こうすると、<strong>作ったファイルが全部デスクトップの「my-site」フォルダに入る</strong>ので、Finder ですぐ見つかります。</p>
+</div>
+
+
+<!-- Section 11: 困ったとき -->
+<div class="section" id="sec11">
+  <div class="section-header"><div class="section-num green">11</div><div class="section-title">困ったとき・エラー対処法</div></div>
 
   <!-- ===== エラー別トラブルシューティング ===== -->
   <h3 style="color:#e74c3c;">エラー別トラブルシューティング</h3>
@@ -642,6 +811,29 @@
     </div>
   </div>
 
+  <!-- アップデート方法 -->
+  <div class="faq-item" style="margin-bottom:16px;">
+    <div class="faq-q" style="background:#e8f8ef;"><span style="display:none;">Q</span>🔄 Claude Code / CMUX のアップデート方法</div>
+    <div class="faq-a" style="padding:14px 18px;">
+      <p>「急に動かなくなった」「新機能を使いたい」ときは<strong>アップデート</strong>で解決することが多いです。</p>
+      <p><strong>Claude Code のアップデート：</strong></p>
+      <div class="terminal" style="margin:10px 0;">
+        <div class="terminal-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div><div class="terminal-title">cmux</div></div>
+        <div class="terminal-body">
+          <span class="prompt">%</span> <span class="command">claude update</span>
+        </div>
+      </div>
+      <p><strong>CMUX のアップデート：</strong></p>
+      <div class="terminal" style="margin:10px 0;">
+        <div class="terminal-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div><div class="terminal-title">cmux</div></div>
+        <div class="terminal-body">
+          <span class="prompt">%</span> <span class="command">brew upgrade cmux</span>
+        </div>
+      </div>
+      <div class="box box-tip" style="margin-top:8px;"><div class="box-label">いつアプデすべき？</div><p style="margin:0">「動かない」「変なエラーが出る」ときは<strong>まずアプデを試す</strong>のが正解。月1回くらいやっておくと安心です。</p></div>
+    </div>
+  </div>
+
   <h3>会話の記憶は途中で消えます</h3>
   <div class="box box-important"><div class="box-label">重要</div><p style="margin:0">長い会話を続けると古い部分の記憶が消えます（仕様です）。<br><strong>「ここまで保存して」とこまめに伝える</strong>のが大事。「進捗メモして」「方針まとめて」でもOK。</p></div>
 
@@ -697,7 +889,28 @@
   <div class="box box-tip"><div class="box-label">見方</div><p style="margin:0"><strong>現在のセッション</strong> = 今すぐの制限。100%で一時停止、数十分で自動リセット。<br><strong>週間制限</strong> = 1週間の合計。毎週リセット。<br>バーが短い = 余裕あり。長い = そろそろ制限。</p></div>
 
   <h3>「使用制限に達しました」と出たら</h3>
-  <div class="box box-warn"><div class="box-label">壊れてません！</div><p style="margin:0">① 数時間待つと回復 ② <span class="type-this">/compact</span> で節約 ③ Max にアップグレード</p></div>
+
+  <span class="screen-label" style="background:#e74c3c;">こんな画面が出たとき</span>
+  <div class="terminal">
+    <div class="terminal-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div><div class="terminal-title">cmux — Claude Code</div></div>
+    <div class="terminal-body">
+      <span class="red">⚠ You've reached your usage limit for Claude.</span><br>
+      <span class="output">Your limit will reset in <span class="highlight">2 hours 34 minutes</span>.</span><br><br>
+      <span class="output">You can:</span><br>
+      <span class="output">  • Wait for your limit to reset</span><br>
+      <span class="output">  • Upgrade to Max for higher limits at <span class="blue">claude.ai/settings</span></span>
+    </div>
+  </div>
+
+  <div class="box box-warn"><div class="box-label">壊れてません！お金も追加で取られません！</div>
+  <p style="margin:0">これは<strong>「今の分を使い切っただけ」</strong>です。故障ではありません。</p>
+  <p style="margin:8px 0 0;"><strong>対処法（3つ）：</strong></p>
+  <ol style="margin:6px 0 0; padding-left:20px;">
+    <li><strong>待つ</strong> — 表示された時間（数十分〜数時間）で自動回復</li>
+    <li><strong>節約する</strong> — 次回から <span class="type-this">/compact</span> をこまめに使う（上のテクニック参照）</li>
+    <li><strong>アップグレード</strong> — Max（$100/月）にすれば5倍使える</li>
+  </ol>
+  </div>
 
   <h3>途中で閉じちゃっても大丈夫</h3>
   <p><strong>作ったファイルは消えません。</strong>会話の履歴だけリセット。「前回の続きから」と言えばOK。</p>
@@ -714,9 +927,9 @@
 </div>
 
 
-<!-- Section 11: CMUX 便利機能 -->
-<div class="section" id="sec11">
-  <div class="section-header"><div class="section-num green">11</div><div class="section-title">CMUX の便利機能（慣れたら）</div></div>
+<!-- Section 12: CMUX 便利機能 -->
+<div class="section" id="sec12">
+  <div class="section-header"><div class="section-num green">12</div><div class="section-title">CMUX の便利機能（慣れたら）</div></div>
   <p><strong>最初は覚えなくてOK。</strong></p>
   <table class="compare-table">
     <tr><th>操作</th><th>動作</th></tr>
@@ -728,9 +941,9 @@
 </div>
 
 
-<!-- Section 12: コスト削減テクニック -->
-<div class="section" id="sec12">
-  <div class="section-header"><div class="section-num green">12</div><div class="section-title">コスト削減テクニック（Pro を長持ちさせる）</div></div>
+<!-- Section 13: コスト削減テクニック -->
+<div class="section" id="sec13">
+  <div class="section-header"><div class="section-num green">13</div><div class="section-title">コスト削減テクニック（Pro を長持ちさせる）</div></div>
 
   <div class="box box-what"><div class="box-label">なぜコスト管理が大事？</div><p style="margin:0">Pro プラン（$20/月）には<strong>使用量の上限</strong>があります。上限に達すると一時的に使えなくなります。<br>以下のテクニックで<strong>同じ料金でもっとたくさん使える</strong>ようになります。</p></div>
 
@@ -794,9 +1007,9 @@
 </div>
 
 
-<!-- Section 13: おすすめスキル・活用法 -->
-<div class="section" id="sec13">
-  <div class="section-header"><div class="section-num green">13</div><div class="section-title">おすすめの使い方・スキル集</div></div>
+<!-- Section 14: おすすめスキル・活用法 -->
+<div class="section" id="sec14">
+  <div class="section-header"><div class="section-num green">14</div><div class="section-title">おすすめの使い方・スキル集</div></div>
 
   <div class="box box-what"><div class="box-label">スキルって何？</div><p style="margin:0">Claude Code には<strong>「スキル」</strong>という拡張機能があります。特定の作業に特化した「得意技」のようなもの。<br>スキルなしでも使えますが、<strong>知っているだけで作業効率が何倍にもなります。</strong></p></div>
 
@@ -852,8 +1065,61 @@
 
 
 <!-- Section 14: FAQ -->
-<div class="section" id="sec14">
-  <div class="section-header"><div class="section-num green">14</div><div class="section-title">よくある質問</div></div>
+<!-- Section 15: サイトを公開する方法 -->
+<div class="section" id="sec15">
+  <div class="section-header"><div class="section-num green">15</div><div class="section-title">作ったサイトを他の人に見せる（公開方法）</div></div>
+
+  <div class="box box-what"><div class="box-label">今のままだと自分しか見れません</div><p style="margin:0">Claude が作ったサイトは<strong>あなたの Mac の中にあるだけ</strong>。他の人に見せるには「インターネットに公開」する必要があります。<br><strong>無料で、コマンド1つで公開できます。</strong></p></div>
+
+  <h3>いちばん簡単な方法：Vercel（ヴァーセル）</h3>
+  <p><strong>Vercel</strong> = 無料でWebサイトを公開できるサービス。面倒な設定ゼロ。</p>
+
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-content">
+      <div class="step-title">Vercel のツールをインストール（初回だけ）</div>
+      <div class="terminal" style="margin-top:8px;">
+        <div class="terminal-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div><div class="terminal-title">cmux</div></div>
+        <div class="terminal-body"><span class="prompt">%</span> <span class="command">npm install -g vercel</span></div>
+      </div>
+    </div></div>
+
+    <div class="step"><div class="step-num">2</div><div class="step-content">
+      <div class="step-title">サイトのフォルダに移動して公開コマンド</div>
+      <div class="terminal" style="margin-top:8px;">
+        <div class="terminal-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div><div class="terminal-title">cmux</div></div>
+        <div class="terminal-body">
+          <span class="prompt">%</span> <span class="command">cd ~/Desktop/my-site</span>  <span class="comment">← サイトのフォルダに移動</span><br>
+          <span class="prompt">%</span> <span class="command">vercel</span>  <span class="comment">← これだけ！</span>
+        </div>
+      </div>
+    </div></div>
+
+    <div class="step"><div class="step-num">3</div><div class="step-content">
+      <div class="step-title">聞かれた質問には全部 Enter（初期値のまま）でOK</div>
+      <div class="step-detail">初回だけメール認証があります。メールアドレスを入力 → 届いたメールの「Verify」をクリック。</div>
+    </div></div>
+
+    <div class="step"><div class="step-num">4</div><div class="step-content">
+      <div class="step-title">URL が表示される → これを共有！</div>
+      <div class="terminal" style="margin-top:8px;">
+        <div class="terminal-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div><div class="terminal-title">cmux</div></div>
+        <div class="terminal-body">
+          <span class="green">✓ Production:</span> <span class="blue">https://my-site-abc123.vercel.app</span><br>
+          <span class="dim">↑ このURLを友達やお客さんに送ればOK！</span>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="box box-tip"><div class="box-label">もっと簡単な方法</div><p style="margin:0">Claude に<strong>「このサイトを Vercel にデプロイして」</strong>と頼めば、全部自動でやってくれます。</p></div>
+
+  <div class="box box-warn"><div class="box-label">独自ドメイン（〇〇.com）は？</div><p style="margin:0">Vercel の無料URLでも十分使えますが、独自ドメインも設定可能。お名前.com 等で取得 → Vercel の設定画面で追加。詳しくは Claude に聞いてみてください。</p></div>
+</div>
+
+
+<!-- Section 16: FAQ -->
+<div class="section" id="sec16">
+  <div class="section-header"><div class="section-num green">16</div><div class="section-title">よくある質問</div></div>
   <div class="faq-item"><div class="faq-q">日本語で使える？</div><div class="faq-a"><strong>はい。</strong>完全対応。英語不要。</div></div>
   <div class="faq-item"><div class="faq-q">プログラミング知識なくても使える？</div><div class="faq-a"><strong>はい。</strong>「Webサイト作って」でOK。細かい微調整には基礎知識があると便利。</div></div>
   <div class="faq-item"><div class="faq-q">普通のターミナルでも使える？</div><div class="faq-a"><strong>使えます。</strong>CMUX の方が画面分割やチーム機能が使えて便利。</div></div>
@@ -865,12 +1131,15 @@
   <div class="faq-item"><div class="faq-q">「claude not found in PATH」って出る！</div><div class="faq-a"><strong>Node.js が入っていない可能性大。</strong>CMUX で <span class="type-this">brew install node</span> → <span class="type-this">curl -fsSL https://claude.ai/install.sh | bash</span> で解決。詳しくはセクション10参照。</div></div>
   <div class="faq-item"><div class="faq-q">ログインが切れた！</div><div class="faq-a">CMUX で <span class="type-this">claude login</span> と打てば再ログインできます。先に Safari/Chrome で claude.ai にログインしておくとスムーズ。</div></div>
   <div class="faq-item"><div class="faq-q">テーマ選択・ログイン方法で何を選ぶ？</div><div class="faq-a">テーマは <strong>「1. Auto」</strong>、ログイン方法は <strong>「1. Claude account with subscription」</strong> を選んでください。</div></div>
+  <div class="faq-item"><div class="faq-q">作ったファイルどこにあるの？</div><div class="faq-a"><strong>claude を起動したフォルダ</strong>に保存されます。Finder → ホーム（<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd>）で見つかります。詳しくはセクション10。</div></div>
+  <div class="faq-item"><div class="faq-q">作ったサイトを人に見せたい！</div><div class="faq-a">Claude に<strong>「Vercel にデプロイして」</strong>と頼めば無料で公開できます。詳しくはセクション15。</div></div>
+  <div class="faq-item"><div class="faq-q">アップデートの仕方は？</div><div class="faq-a">Claude Code: <span class="type-this">claude update</span> / CMUX: <span class="type-this">brew upgrade cmux</span></div></div>
   <div class="faq-item"><div class="faq-q">料金は日本円じゃないの？</div><div class="faq-a"><strong>米ドル（USD）決済。</strong>カード会社が自動で円換算します。</div></div>
 </div>
 
 
 <!-- チェックリスト -->
-<div class="section" id="sec15">
+<div class="section" id="sec17">
   <div class="section-header"><div class="section-num">✓</div><div class="section-title">セットアップ完了チェックリスト</div></div>
   <ul class="checklist">
     <li>claude.ai でアカウント作成した</li>
