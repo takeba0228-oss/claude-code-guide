@@ -194,6 +194,7 @@
     <a class="toc-item green-bg" href="#sec14"><span class="toc-num green">14</span><span class="toc-text">おすすめ活用法・スキル</span></a>
     <a class="toc-item green-bg" href="#sec15"><span class="toc-num green">15</span><span class="toc-text">サイトを公開する方法</span></a>
     <a class="toc-item green-bg" href="#sec16"><span class="toc-num green">16</span><span class="toc-text">よくある質問</span></a>
+    <a class="toc-item green-bg" href="#sec17"><span class="toc-num green">17</span><span class="toc-text">データ保護・バックアップ</span></a>
   </div>
 </div>
 
@@ -1221,8 +1222,123 @@
 </div>
 
 
-<!-- チェックリスト -->
+<!-- ===== セクション17: データ保護・バックアップ ===== -->
 <div class="section" id="sec17">
+  <div class="section-header"><div class="section-num green">17</div><div class="section-title">データ保護・バックアップ</div></div>
+
+  <div class="box box-important">
+    <div class="box-label">重要</div>
+    Claude Code で作った会話やファイル、<strong>消えたらもう取り戻せません。</strong><br>
+    PCの故障・誤操作・再インストールに備えて、バックアップを設定しておきましょう。
+  </div>
+
+  <h3>Claude Code のデータはどこに保存されている？</h3>
+  <p>Claude Code の全データは Mac の中の<strong>隠しフォルダ</strong>に入っています：</p>
+  <div class="glossary">
+    <div class="glossary-item">
+      <div class="glossary-term">~/.claude/</div>
+      <div class="glossary-def">Claude Code のホームフォルダ。全てのデータがここに入っている</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">会話ログ（.jsonl ファイル）</div>
+      <div class="glossary-def">Claude とのやり取りがすべて記録されている。<code>claude --resume</code> で過去の会話を再開できるのはこのおかげ</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">メモリ（memory フォルダ）</div>
+      <div class="glossary-def">Claude に「覚えて」と言った内容が保存される場所。会話をまたいで記憶を引き継ぐ</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">設定ファイル（settings.json）</div>
+      <div class="glossary-def">スキル・フック・権限設定など、カスタマイズした内容</div>
+    </div>
+  </div>
+
+  <div class="box box-warn">
+    <div class="box-label">注意</div>
+    これらは <strong>Mac のローカルにしか存在しません。</strong>PC が壊れたら全部消えます。Anthropic のサーバーには保存されていません。
+  </div>
+
+  <h3>バックアップの設定方法（コピペ3回で完了）</h3>
+  <p>GitHub（無料）に自動バックアップする仕組みを作ります。PCが壊れても、新しいPCで復元できます。</p>
+
+  <div class="box box-what">
+    <div class="box-label">前提条件</div>
+    <strong>GitHub アカウント</strong>が必要です。まだの方は <a href="https://github.com/signup" style="color:#667eea;">github.com/signup</a> で無料登録してください。
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">GitHub CLI をインストール</div>
+        <div class="step-detail">
+          <div class="terminal"><div class="terminal-bar"><span class="terminal-dot dot-red"></span><span class="terminal-dot dot-yellow"></span><span class="terminal-dot dot-green"></span><span class="terminal-title">ターミナル</span></div><div class="terminal-body"><span class="prompt">$</span> <span class="command">brew install gh</span></div></div>
+          インストール後、ログインします：
+          <div class="terminal"><div class="terminal-bar"><span class="terminal-dot dot-red"></span><span class="terminal-dot dot-yellow"></span><span class="terminal-dot dot-green"></span><span class="terminal-title">ターミナル</span></div><div class="terminal-body"><span class="prompt">$</span> <span class="command">gh auth login</span><br><span class="comment"># → 「GitHub.com」を選択</span><br><span class="comment"># → 「HTTPS」を選択</span><br><span class="comment"># → 「Login with a web browser」を選択</span><br><span class="comment"># → ブラウザが開くのでログイン</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">バックアップスクリプトを作成</div>
+        <div class="step-detail">
+          Claude Code に以下をそのまま伝えてください：
+          <div class="convo"><div class="convo-bar"><span class="terminal-dot dot-red"></span><span class="terminal-dot dot-yellow"></span><span class="terminal-dot dot-green"></span></div><div class="convo-body"><div class="convo-you">あなた：</div><div class="convo-msg">Claude Code の全データ（会話ログ・メモリ・設定）を GitHub のプライベートリポジトリに自動バックアップする仕組みを作って。LaunchAgent で30分間隔 + fswatch でリアルタイム監視の二重構成で。</div><div class="convo-ai">Claude：</div><div class="convo-msg ai-msg">（自動でスクリプト作成・GitHub リポジトリ作成・LaunchAgent 登録まで全部やってくれます）</div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">動作確認</div>
+        <div class="step-detail">
+          設定完了後、以下で確認できます：
+          <div class="terminal"><div class="terminal-bar"><span class="terminal-dot dot-red"></span><span class="terminal-dot dot-yellow"></span><span class="terminal-dot dot-green"></span><span class="terminal-title">ターミナル</span></div><div class="terminal-body"><span class="comment"># バックアップが動いているか確認</span><br><span class="prompt">$</span> <span class="command">launchctl list | grep claude</span><br><br><span class="comment"># 最新のバックアップログを見る</span><br><span class="prompt">$</span> <span class="command">tail -5 ~/mac-automation/claude_data_backup.log</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>バックアップの仕組み（図解）</h3>
+  <div class="diagram">
+    <div class="diagram-box primary">Claude Code のデータ<small>会話ログ・メモリ・設定・プラン</small></div>
+    <div class="diagram-arrow">↓ リアルタイム監視（fswatch）+ 30分定期</div>
+    <div class="diagram-box secondary">ローカルバックアップ<small>~/.claude-backup/（Git管理）</small></div>
+    <div class="diagram-arrow">↓ 自動 git push</div>
+    <div class="diagram-box accent">GitHub プライベートリポジトリ<small>クラウドに安全保管。PC壊れても復元可能</small></div>
+  </div>
+
+  <h3>PCが壊れたとき・新PCに移行するとき</h3>
+  <p>新しいPCで以下を実行するだけで全データが戻ります：</p>
+  <div class="terminal"><div class="terminal-bar"><span class="terminal-dot dot-red"></span><span class="terminal-dot dot-yellow"></span><span class="terminal-dot dot-green"></span><span class="terminal-title">新しいPC</span></div><div class="terminal-body"><span class="comment"># GitHub からデータを取得</span><br><span class="prompt">$</span> <span class="command">gh repo clone あなたのユーザー名/claude-data-backup ~/.claude-backup</span><br><br><span class="comment"># Claude Code のフォルダにコピー</span><br><span class="prompt">$</span> <span class="command">cp -r ~/.claude-backup/memory/ ~/.claude/projects/（自分のパス）/memory/</span><br><span class="prompt">$</span> <span class="command">cp -r ~/.claude-backup/conversations/*.jsonl ~/.claude/projects/（自分のパス）/</span><br><span class="prompt">$</span> <span class="command">cp ~/.claude-backup/settings/* ~/.claude/</span></div></div>
+
+  <div class="box box-tip">
+    <div class="box-label">ポイント</div>
+    <strong>復元コマンドを覚える必要はありません。</strong>新しいPCで Claude Code をインストールしたら「GitHub の claude-data-backup リポジトリからデータを復元して」と Claude に頼めばやってくれます。
+  </div>
+
+  <h3>会話が途中で消える？（コンテキスト圧縮について）</h3>
+  <p>長い会話をしていると、<strong>古い部分がAI側で自動的に要約されます。</strong>これはバックアップでは防げません（AIの仕様）。</p>
+  <p>対策：</p>
+  <ul style="margin-left:20px; margin-bottom:14px;">
+    <li>重要な情報は<strong>「これ覚えて」</strong>とClaude に伝える → メモリに永久保存される</li>
+    <li><strong><kbd>claude --resume</kbd></strong>で過去の会話を選んで再開できる</li>
+    <li>長い作業は<strong>途中でまとめを頼む</strong>（「ここまでの作業内容をまとめて」）</li>
+  </ul>
+
+  <table class="compare-table">
+    <tr><th>消えるリスク</th><th>バックアップで守れる？</th></tr>
+    <tr><td>PC故障・紛失</td><td class="recommended">守れる</td></tr>
+    <tr><td>誤ってファイル削除</td><td class="recommended">守れる（Git履歴から復元）</td></tr>
+    <tr><td>PC再起動</td><td class="recommended">守れる（データはそのまま残る）</td></tr>
+    <tr><td>長い会話の古い部分が要約される</td><td>守れない（AIの仕様）→ メモリ機能で対策</td></tr>
+  </table>
+</div>
+
+
+<!-- チェックリスト -->
+<div class="section" id="sec18">
   <div class="section-header"><div class="section-num">✓</div><div class="section-title">セットアップ完了チェックリスト</div></div>
   <ul class="checklist">
     <li>claude.ai でアカウント作成した</li>
