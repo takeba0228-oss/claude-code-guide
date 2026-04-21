@@ -136,11 +136,37 @@
 
 <div class="hero">
   <h1>Claude Code × CMUX<br>完全導入ガイド</h1>
-  <div class="subtitle">パソコン初心者でも大丈夫！<br>画面の見方から使い方まで、ぜんぶ解説します</div>
+  <div class="subtitle">コピペだけ・30分で完了！<br>AIに話しかけるだけでWebサイトが作れる環境をゼロから構築</div>
   <div class="badge">Mac ユーザー向け（macOS 14 以降）</div>
 </div>
 
 <div class="container">
+
+<!-- ===== このガイドで得られること ===== -->
+<div style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); border-radius:16px; padding:32px 36px; margin:-30px auto 20px; color:white; position:relative; z-index:2; box-shadow:0 4px 24px rgba(0,0,0,0.12);">
+  <h2 style="font-size:1.2em; margin-bottom:16px;">このガイドで得られること</h2>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+    <div style="background:rgba(255,255,255,0.12); padding:14px 16px; border-radius:10px;">
+      <strong style="font-size:1.1em;">30分で導入完了</strong><br>
+      <span style="opacity:0.85; font-size:0.88em;">コピペだけ。コマンドの暗記不要</span>
+    </div>
+    <div style="background:rgba(255,255,255,0.12); padding:14px 16px; border-radius:10px;">
+      <strong style="font-size:1.1em;">全画面を図解</strong><br>
+      <span style="opacity:0.85; font-size:0.88em;">「次に何を押す？」が一目でわかる</span>
+    </div>
+    <div style="background:rgba(255,255,255,0.12); padding:14px 16px; border-radius:10px;">
+      <strong style="font-size:1.1em;">エラー対処法つき</strong><br>
+      <span style="opacity:0.85; font-size:0.88em;">よくあるトラブル全パターン網羅</span>
+    </div>
+    <div style="background:rgba(255,255,255,0.12); padding:14px 16px; border-radius:10px;">
+      <strong style="font-size:1.1em;">コスト節約テクつき</strong><br>
+      <span style="opacity:0.85; font-size:0.88em;">月$20のProプランを最大限使い倒す</span>
+    </div>
+  </div>
+  <div style="margin-top:16px; background:rgba(255,255,255,0.18); padding:14px 18px; border-radius:10px; text-align:center;">
+    <strong style="font-size:1.05em;">プログラミング知識ゼロでも、このガイド通りにやれば<br>「AIに話しかけるだけでWebサイトが作れる環境」が手に入ります</strong>
+  </div>
+</div>
 
 <!-- ===== TOC ===== -->
 <div class="toc">
@@ -706,6 +732,57 @@
     </div>
   </div>
   <p>こうすると、<strong>作ったファイルが全部デスクトップの「my-site」フォルダに入る</strong>ので、Finder ですぐ見つかります。</p>
+
+  <h3>「ファイルが何個もできた！」ときの見方</h3>
+  <p>Webサイトを頼むと、Claude は<strong>複数のファイル</strong>を作ることがあります。慌てなくて大丈夫！</p>
+
+  <div class="terminal">
+    <div class="terminal-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div><div class="terminal-title">Finder でフォルダを開くとこんな感じ</div></div>
+    <div class="terminal-body">
+      <span class="blue">my-site/</span><br>
+      <span class="output">  ├── <span class="highlight">index.html</span>    <span class="comment">← メインのページ（これをブラウザで開く！）</span></span><br>
+      <span class="output">  ├── <span class="highlight">style.css</span>     <span class="comment">← デザイン（色、フォント、レイアウト）</span></span><br>
+      <span class="output">  ├── <span class="highlight">script.js</span>     <span class="comment">← 動き（ボタンクリック、アニメーション）</span></span><br>
+      <span class="output">  └── <span class="blue">images/</span>       <span class="comment">← 画像フォルダ</span></span>
+    </div>
+  </div>
+
+  <table class="compare-table">
+    <tr><th>ファイル名</th><th>何これ？</th><th>開く必要は？</th></tr>
+    <tr class="recommended"><td><strong>.html</strong></td><td>ページの中身</td><td><strong>これをダブルクリック！</strong></td></tr>
+    <tr><td><strong>.css</strong></td><td>見た目のデザイン</td><td>触らなくてOK（自動で読まれる）</td></tr>
+    <tr><td><strong>.js</strong></td><td>動きの指示</td><td>触らなくてOK（自動で読まれる）</td></tr>
+    <tr><td><strong>images/</strong></td><td>画像の入れ物</td><td>画像を追加したいとき</td></tr>
+  </table>
+  <p style="color:#888;font-size:0.9em;"><strong>ポイント：開くのは .html だけ！</strong>他のファイルは .html が自動で読み込むので、触らなくて大丈夫です。</p>
+
+  <h3>次の日の続き方（超重要！）</h3>
+  <div class="box box-important"><div class="box-label">CMUX を閉じても作ったファイルは消えません！</div><p style="margin:0">ただし<strong>会話の履歴は消えます</strong>（Claude は前回何を話したか忘れます）。<br>でも<strong>ファイルは残っている</strong>ので、翌日もちゃんと続きから作業できます。</p></div>
+
+  <p><strong>翌日の再開手順：</strong></p>
+  <div class="terminal">
+    <div class="terminal-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div><div class="terminal-title">cmux — 翌日のスタート</div></div>
+    <div class="terminal-body">
+      <span class="prompt">%</span> <span class="command">cd ~/Desktop/my-site</span>  <span class="comment">← 前回と同じフォルダに移動</span><br>
+      <span class="prompt">%</span> <span class="command">claude</span>  <span class="comment">← Claude を起動</span>
+    </div>
+  </div>
+
+  <span class="screen-label" style="background:#27ae60;">翌日の会話例</span>
+  <div class="convo">
+    <div class="convo-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div></div>
+    <div class="convo-body">
+      <div class="convo-you">あなた:</div>
+      <div class="convo-msg">昨日作った自己紹介サイトの続き。ここにあるファイル見て、料金ページを追加して</div>
+      <div class="convo-ai">Claude:</div>
+      <div class="convo-msg ai-msg">ファイルを確認しました。index.html と style.css がありますね。<br>料金ページを追加しますね。pricing.html を作成してもいいですか？</div>
+      <div style="color:#a6e3a1; font-size:0.85em; margin-top:6px;">→ Claude がファイルを読み取って、ちゃんと続きから作ってくれる！</div>
+    </div>
+  </div>
+
+  <div class="box box-tip"><div class="box-label">続きを頼むコツ</div>
+  <p style="margin:0"><strong>「ここにあるファイル見て」を最初に言う</strong>のがポイント！<br>Claude は会話は忘れても、ファイルを読めば前回何を作ったか理解してくれます。</p>
+  </div>
 </div>
 
 
@@ -1135,6 +1212,12 @@
   <div class="faq-item"><div class="faq-q">作ったサイトを人に見せたい！</div><div class="faq-a">Claude に<strong>「Vercel にデプロイして」</strong>と頼めば無料で公開できます。詳しくはセクション15。</div></div>
   <div class="faq-item"><div class="faq-q">アップデートの仕方は？</div><div class="faq-a">Claude Code: <span class="type-this">claude update</span> / CMUX: <span class="type-this">brew upgrade cmux</span></div></div>
   <div class="faq-item"><div class="faq-q">料金は日本円じゃないの？</div><div class="faq-a"><strong>米ドル（USD）決済。</strong>カード会社が自動で円換算します。</div></div>
+  <div class="faq-item"><div class="faq-q">昨日の続きってできる？</div><div class="faq-a"><strong>できます！</strong>同じフォルダで claude を起動して「ここにあるファイル見て、続きお願い」でOK。ファイルは残ってるので安心。</div></div>
+  <div class="faq-item"><div class="faq-q">Claude Code のアプリ入れてるけどCMUXでも必要？</div><div class="faq-a"><strong>はい。</strong>デスクトップアプリ版とターミナル版は別物。CMUX で使うにはセクション6のインストールが必要です。</div></div>
+  <div class="faq-item"><div class="faq-q">ファイルがいっぱいできた！何これ？</div><div class="faq-a"><strong>.html だけ開けばOK。</strong>.css（デザイン）と .js（動き）は自動で読み込まれます。詳しくはセクション10。</div></div>
+  <div class="faq-item"><div class="faq-q">Claude にお願いしたら変なの作られた…</div><div class="faq-a"><strong>「やっぱ違う、元に戻して」</strong>と言えばOK。「この部分だけ変えて」と具体的に伝えるとうまくいきます。</div></div>
+  <div class="faq-item"><div class="faq-q">英語で返事が来る！</div><div class="faq-a"><strong>「日本語で答えて」</strong>と言えば切り替わります。最初に「いつも日本語で返事して」と伝えておくのがおすすめ。</div></div>
+  <div class="faq-item"><div class="faq-q">解約方法は？</div><div class="faq-a">claude.ai → Settings → Subscription → <strong>Cancel plan</strong>。即解約で残り期間も使えます。違約金なし。</div></div>
 </div>
 
 
