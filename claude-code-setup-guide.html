@@ -161,7 +161,7 @@
   <div class="toc-phase usage">PART 2 ─ 使い方編（セットアップ後に読んでね）</div>
   <div class="toc-grid">
     <a class="toc-item green-bg" href="#sec9"><span class="toc-num green">9</span><span class="toc-text">使ってみよう</span></a>
-    <a class="toc-item green-bg" href="#sec10"><span class="toc-num green">10</span><span class="toc-text">困ったときの対処法</span></a>
+    <a class="toc-item green-bg" href="#sec10"><span class="toc-num green">10</span><span class="toc-text">困ったとき・エラー対処</span></a>
     <a class="toc-item green-bg" href="#sec11"><span class="toc-num green">11</span><span class="toc-text">CMUX の便利機能</span></a>
     <a class="toc-item green-bg" href="#sec12"><span class="toc-num green">12</span><span class="toc-text">よくある質問</span></a>
   </div>
@@ -314,13 +314,33 @@
 <!-- Section 6: Claude Code -->
 <div class="section" id="sec6">
   <div class="section-header"><div class="section-num">6</div><div class="section-title">Claude Code をインストールする</div></div>
+
+  <div class="box box-important"><div class="box-label">Claude Code のアプリを持っていても、ターミナルでのインストールは必要です！</div><p style="margin:0">Claude Code のデスクトップアプリ（Mac アプリ）を既にインストールしていても、<strong>CMUX から使うにはターミナルでのインストール（このステップ6）が別途必要</strong>です。<br>アプリ版とターミナル版は別物です。<strong>必ず以下の手順を実行してください。</strong></p></div>
+
+  <h3>6-1. まず Node.js が入っているか確認</h3>
+  <p>Claude Code を動かすには <strong>Node.js</strong> というソフトが必要です。まず確認しましょう：</p>
+  <div class="terminal">
+    <div class="terminal-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div><div class="terminal-title">コピペ</div></div>
+    <div class="terminal-body"><span class="prompt">%</span> <span class="command">node --version</span></div>
+  </div>
+  <p>「v20.x.x」「v22.x.x」など<strong>数字が出ればOK</strong> → 6-2 へ進んでください。</p>
+  <p>「command not found」と出たら → <strong>Node.js をインストール</strong>します：</p>
+  <div class="terminal">
+    <div class="terminal-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div><div class="terminal-title">コピペ</div></div>
+    <div class="terminal-body"><span class="prompt">%</span> <span class="command">brew install node</span></div>
+  </div>
+  <p>2〜3分で完了。<span class="type-this">node --version</span> で数字が出ればOK。</p>
+
+  <div class="box box-important"><div class="box-label">Node.js がないと「claude not found in PATH」エラーが出ます！</div><p style="margin:0">この後 CMUX で <code>claude</code> と打った時に <code style="color:#e74c3c;">Error: claude not found in PATH</code> と出る原因の多くは <strong>Node.js が入っていない</strong>ことです。<strong>必ずこのステップを実行してください。</strong></p></div>
+
+  <h3>6-2. Claude Code をインストール</h3>
   <p>白い文字をコピペ → <kbd>Enter（return）</kbd>：</p>
   <div class="terminal">
     <div class="terminal-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div><div class="terminal-title">コピペ</div></div>
     <div class="terminal-body"><span class="prompt">%</span> <span class="command">curl -fsSL https://claude.ai/install.sh | bash</span></div>
   </div>
   <p>1〜2分で完了。確認：<span class="type-this">claude --version</span> でバージョンが出ればOK。</p>
-  <div class="box box-warn"><div class="box-label">「command not found」と出たら</div><p style="margin:0">ターミナルを<strong>左上の赤い×で閉じて、Launchpad からもう一度開き直して</strong>ください。</p></div>
+  <div class="box box-warn"><div class="box-label">「command not found」と出たら</div><p style="margin:0">ターミナルを<strong>左上の赤い×で閉じて、Launchpad からもう一度開き直して</strong>ください。<br>それでもダメなら以下を実行：<br><code style="background:#1e1e2e; color:#f5e0dc; padding:2px 8px; border-radius:4px;">npm install -g @anthropic-ai/claude-code</code></p></div>
 </div>
 
 
@@ -383,13 +403,66 @@
     <div class="terminal-body"><span class="prompt">yourname@MacBook-Air ~ %</span> <span class="command">claude</span></div>
   </div>
 
-  <h3>初回だけ：ブラウザが開く</h3>
+  <h3>初回だけ：テーマの選択</h3>
+  <p>初めて <code>claude</code> を起動すると、<strong>見た目のテーマ</strong>を選ぶ画面が出ます：</p>
+
+  <span class="screen-label">テーマ選択画面</span>
+  <div class="terminal">
+    <div class="terminal-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div><div class="terminal-title">cmux — テーマ選択</div></div>
+    <div class="terminal-body">
+      <span class="output">Let's get started.</span><br><br>
+      <span class="output"><strong>Choose the text style that looks best with your terminal</strong></span><br>
+      <span class="dim">To change this later, run /theme</span><br><br>
+      <span class="output">  1. Auto (match terminal)</span><br>
+      <span class="output">  2. Dark mode</span><br>
+      <span class="highlight">❯ 3. Light mode</span><br>
+      <span class="output">  4. Dark mode (colorblind-friendly)</span><br>
+      <span class="output">  5. Light mode (colorblind-friendly)</span><br>
+      <span class="output">  6. Dark mode (ANSI colors only)</span><br>
+      <span class="output">  7. Light mode (ANSI colors only)</span>
+    </div>
+  </div>
+
+  <div class="box box-tip"><div class="box-label">どれを選ぶ？</div><p style="margin:0"><strong>「1. Auto」を選べばOK！</strong>上下の矢印キーで選んで <kbd>Enter（return）</kbd>。CMUX は暗い背景なので、自動で見やすい色に合わせてくれます。後から <code>/theme</code> で変えられます。</p></div>
+
+  <h3>初回だけ：ログイン方法の選択</h3>
+  <p>テーマの次に、<strong>どのアカウントでログインするか</strong>を聞かれます：</p>
+
+  <span class="screen-label">ログイン方法の選択画面</span>
+  <div class="terminal">
+    <div class="terminal-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div><div class="terminal-title">cmux — ログイン</div></div>
+    <div class="terminal-body">
+      <span class="output">Claude Code can be used with your Claude subscription or billed</span><br>
+      <span class="output">based on API usage through your Console account.</span><br><br>
+      <span class="output"><strong>Select login method:</strong></span><br><br>
+      <span class="highlight">❯ 1. Claude account with subscription · Pro, Max, Team, or Enterprise</span><br>
+      <span class="output">  2. Anthropic Console account · API usage billing</span><br>
+      <span class="output">  3. 3rd-party platform · Amazon Bedrock, Microsoft Foundry, or Vertex AI</span>
+    </div>
+  </div>
+
+  <div class="box box-important"><div class="box-label">必ず「1」を選んでください！</div><p style="margin:0"><strong>「1. Claude account with subscription」</strong>を選んで <kbd>Enter（return）</kbd>。<br>Pro/Max のサブスクに加入した人はこれ。2番と3番はエンジニア向けなので<strong>選ばないで</strong>ください。</p></div>
+
+  <h3>ブラウザでログイン</h3>
   <div class="steps">
-    <div class="step"><div class="step-num">1</div><div class="step-content"><div class="step-title">ブラウザが自動で開く → Claude アカウントでログイン</div></div></div>
+    <div class="step"><div class="step-num">1</div><div class="step-content"><div class="step-title">ブラウザが自動で開く → Claude アカウントでログイン</div><div class="step-detail">Google ログイン（「Continue with Google」）がいちばん簡単。</div></div></div>
     <div class="step"><div class="step-num">2</div><div class="step-content"><div class="step-title">「Allow（許可）」をクリック</div></div></div>
     <div class="step"><div class="step-num">3</div><div class="step-content"><div class="step-title">Dock で CMUX のアイコンをクリックして戻る</div></div></div>
   </div>
-  <div class="box box-tip"><div class="box-label">ログインは初回だけ！</div><p style="margin:0">2回目以降は <span class="type-this">claude</span> と打つだけ。</p></div>
+
+  <div class="box box-warn"><div class="box-label">「OAuth error: Invalid code」と出たら</div>
+  <p style="margin:0">ブラウザでのログイン認証がうまくいかなかったときに出ます。<strong>慌てないでください！</strong></p>
+  <p style="margin:8px 0 0;">対処法：</p>
+  <ol style="margin:6px 0 0; padding-left:20px; font-size:0.93em;">
+    <li><kbd>Enter（return）</kbd> を押してリトライ</li>
+    <li>CMUX 内のブラウザではなく、<strong>普通のブラウザ（Safari / Chrome）でログインする</strong>のがおすすめ<br>→ CMUX の内蔵ブラウザだとパスワード入力が面倒なため、先に Safari/Chrome で <strong>claude.ai</strong> にログインしておくとスムーズ</li>
+    <li>それでもダメなら、CMUX で以下を入力：<br><code style="background:#1e1e2e; color:#f5e0dc; padding:2px 8px; border-radius:4px;">claude login</code><br>→ ログインをやり直せます</li>
+  </ol>
+  </div>
+
+  <div class="box box-tip"><div class="box-label">ログインのコツ</div><p style="margin:0">CMUX の内蔵ブラウザでは Google パスワードや 2段階認証の入力がうまくいかないことがあります。<br><strong>先に Safari / Chrome で claude.ai にログインしておく</strong>と、CMUX からのログインは「許可」ボタンを押すだけで済みます。</p></div>
+
+  <div class="box box-tip"><div class="box-label">ログインは初回だけ！</div><p style="margin:0">2回目以降は <span class="type-this">claude</span> と打つだけ。<br>ただし<strong>一定期間でログインが切れることがあります</strong>（後述のトラブルシューティング参照）。</p></div>
 
   <h3>この画面が出れば成功！</h3>
   <div class="terminal">
@@ -467,7 +540,105 @@
 
 <!-- Section 10: 困ったとき -->
 <div class="section" id="sec10">
-  <div class="section-header"><div class="section-num green">10</div><div class="section-title">困ったときの対処法</div></div>
+  <div class="section-header"><div class="section-num green">10</div><div class="section-title">困ったとき・エラー対処法</div></div>
+
+  <!-- ===== エラー別トラブルシューティング ===== -->
+  <h3 style="color:#e74c3c;">エラー別トラブルシューティング</h3>
+
+  <!-- Error: claude not found in PATH -->
+  <div class="faq-item" style="margin-bottom:16px;">
+    <div class="faq-q" style="background:#fdecea;"><span style="display:none;">Q</span>❌ Error: claude not found in PATH</div>
+    <div class="faq-a" style="padding:14px 18px;">
+      <span class="screen-label" style="background:#e74c3c;">こんな画面が出たとき</span>
+      <div class="terminal" style="margin:10px 0;">
+        <div class="terminal-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div><div class="terminal-title">cmux</div></div>
+        <div class="terminal-body">
+          <span class="prompt">yourname@MacBook-Air ~ %</span> <span class="command">claude</span><br>
+          <span class="red">Error: claude not found in PATH</span><br>
+          <span class="prompt">yourname@MacBook-Air ~ %</span>
+        </div>
+      </div>
+      <p><strong>原因：</strong>Claude Code が正しくインストールされていない、または Node.js が入っていない。</p>
+      <p><strong>解決手順（上から順番に試してください）：</strong></p>
+      <ol style="margin:6px 0; padding-left:20px; line-height:2.2;">
+        <li><strong>Node.js を確認：</strong><span class="type-this">node --version</span> と入力。「command not found」なら <span class="type-this">brew install node</span> を実行</li>
+        <li><strong>Claude Code を再インストール：</strong><span class="type-this">curl -fsSL https://claude.ai/install.sh | bash</span></li>
+        <li><strong>CMUX を一度閉じて開き直す</strong>（左上の赤い×で閉じる → Launchpad から再度開く）</li>
+        <li>それでもダメなら：<span class="type-this">npm install -g @anthropic-ai/claude-code</span></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- OAuth error -->
+  <div class="faq-item" style="margin-bottom:16px;">
+    <div class="faq-q" style="background:#fdecea;"><span style="display:none;">Q</span>❌ OAuth error: Invalid code</div>
+    <div class="faq-a" style="padding:14px 18px;">
+      <span class="screen-label" style="background:#e74c3c;">こんな画面が出たとき</span>
+      <div class="terminal" style="margin:10px 0;">
+        <div class="terminal-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div><div class="terminal-title">cmux</div></div>
+        <div class="terminal-body">
+          <span class="red">OAuth error: Invalid code. Please make sure the full code was copied</span><br><br>
+          <span class="blue">Press Enter to retry.</span>
+        </div>
+      </div>
+      <p><strong>原因：</strong>ブラウザでのログイン認証が途中で切れた・タイムアウトした。</p>
+      <p><strong>解決手順：</strong></p>
+      <ol style="margin:6px 0; padding-left:20px; line-height:2.2;">
+        <li><kbd>Enter（return）</kbd> を押してリトライ</li>
+        <li>リトライしてもダメなら、<strong>先に Safari / Chrome で claude.ai にログインしておく</strong></li>
+        <li>その後 CMUX に戻って <span class="type-this">claude login</span> と入力してやり直す</li>
+      </ol>
+      <div class="box box-tip" style="margin-top:12px;"><div class="box-label">ポイント</div><p style="margin:0">CMUX の内蔵ブラウザは Google パスワードや2段階認証の入力がしにくいことがあります。<strong>先に普通のブラウザでログインしておく</strong>のがいちばん確実です。</p></div>
+    </div>
+  </div>
+
+  <!-- ログインが切れた -->
+  <div class="faq-item" style="margin-bottom:16px;">
+    <div class="faq-q" style="background:#fef9e7;"><span style="display:none;">Q</span>⚠️ ログインが切れた / 再ログインを求められた</div>
+    <div class="faq-a" style="padding:14px 18px;">
+      <p><strong>一定期間（数日〜数週間）でログインが切れる</strong>ことがあります。これは正常な動作です。</p>
+      <p><strong>解決手順：</strong></p>
+      <div class="terminal" style="margin:10px 0;">
+        <div class="terminal-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div><div class="terminal-title">cmux</div></div>
+        <div class="terminal-body">
+          <span class="prompt">yourname@MacBook-Air ~ %</span> <span class="command">claude login</span>
+        </div>
+      </div>
+      <p><span class="type-this">claude login</span> と打つだけ！ ブラウザが開くので「許可」をクリック。</p>
+      <div class="box box-tip" style="margin-top:8px;"><div class="box-label">ログインしやすくするコツ</div><p style="margin:0">CMUX 内のブラウザではなく、<strong>普通のブラウザ（Safari / Chrome）を使う</strong>と Google ログインのパスワード入力や2段階認証がスムーズです。<br>先に Safari/Chrome で <strong>claude.ai</strong> にログインしておけば、CMUX からは「許可」ボタンを押すだけで完了します。</p></div>
+    </div>
+  </div>
+
+  <!-- node not found -->
+  <div class="faq-item" style="margin-bottom:16px;">
+    <div class="faq-q" style="background:#fdecea;"><span style="display:none;">Q</span>❌ node: command not found / Node.js が入っていない</div>
+    <div class="faq-a" style="padding:14px 18px;">
+      <p>Claude Code は Node.js がないと動きません。</p>
+      <div class="terminal" style="margin:10px 0;">
+        <div class="terminal-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div><div class="terminal-title">コピペ</div></div>
+        <div class="terminal-body">
+          <span class="prompt">%</span> <span class="command">brew install node</span>
+        </div>
+      </div>
+      <p>完了したら <span class="type-this">node --version</span> で確認 → 数字が出ればOK。<br>その後 Claude Code を再インストール：<span class="type-this">curl -fsSL https://claude.ai/install.sh | bash</span></p>
+    </div>
+  </div>
+
+  <!-- brew not found -->
+  <div class="faq-item" style="margin-bottom:16px;">
+    <div class="faq-q" style="background:#fef9e7;"><span style="display:none;">Q</span>⚠️ brew: command not found</div>
+    <div class="faq-a" style="padding:14px 18px;">
+      <p>ステップ5の Homebrew インストール後の<strong>「Next steps」の2行を実行し忘れ</strong>ています。</p>
+      <div class="terminal" style="margin:10px 0;">
+        <div class="terminal-bar"><div class="terminal-dot dot-red"></div><div class="terminal-dot dot-yellow"></div><div class="terminal-dot dot-green"></div><div class="terminal-title">1行ずつコピペ → Enter</div></div>
+        <div class="terminal-body">
+          <span class="prompt">%</span> <span class="command">echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile</span><br>
+          <span class="prompt">%</span> <span class="command">eval "$(/opt/homebrew/bin/brew shellenv)"</span>
+        </div>
+      </div>
+      <p>実行後、<span class="type-this">brew --version</span> で確認してください。</p>
+    </div>
+  </div>
 
   <h3>会話の記憶は途中で消えます</h3>
   <div class="box box-important"><div class="box-label">重要</div><p style="margin:0">長い会話を続けると古い部分の記憶が消えます（仕様です）。<br><strong>「ここまで保存して」とこまめに伝える</strong>のが大事。「進捗メモして」「方針まとめて」でもOK。</p></div>
@@ -566,6 +737,9 @@
   <div class="faq-item"><div class="faq-q">データ漏れない？</div><div class="faq-a">PC上で動作。Pro/Max のデータはAI学習に使われません。</div></div>
   <div class="faq-item"><div class="faq-q">閉じちゃった！データ消えた？</div><div class="faq-a"><strong>ファイルは消えません。</strong>会話履歴だけリセット。「前回の続きから」と言えばOK。</div></div>
   <div class="faq-item"><div class="faq-q">固まって動かない！</div><div class="faq-a"><kbd>Ctrl</kbd>+<kbd>C</kbd> 2回で強制終了 → <span class="type-this">claude</span> で再起動。</div></div>
+  <div class="faq-item"><div class="faq-q">「claude not found in PATH」って出る！</div><div class="faq-a"><strong>Node.js が入っていない可能性大。</strong>CMUX で <span class="type-this">brew install node</span> → <span class="type-this">curl -fsSL https://claude.ai/install.sh | bash</span> で解決。詳しくはセクション10参照。</div></div>
+  <div class="faq-item"><div class="faq-q">ログインが切れた！</div><div class="faq-a">CMUX で <span class="type-this">claude login</span> と打てば再ログインできます。先に Safari/Chrome で claude.ai にログインしておくとスムーズ。</div></div>
+  <div class="faq-item"><div class="faq-q">テーマ選択・ログイン方法で何を選ぶ？</div><div class="faq-a">テーマは <strong>「1. Auto」</strong>、ログイン方法は <strong>「1. Claude account with subscription」</strong> を選んでください。</div></div>
   <div class="faq-item"><div class="faq-q">料金は日本円じゃないの？</div><div class="faq-a"><strong>米ドル（USD）決済。</strong>カード会社が自動で円換算します。</div></div>
 </div>
 
